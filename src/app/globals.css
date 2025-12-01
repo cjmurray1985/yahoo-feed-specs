@@ -1,27 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
+  --yahoo-purple: #6001d2;
+  --yahoo-purple-dark: #4a00a0;
+  --yahoo-purple-light: #7e1fff;
   --background: #ffffff;
-  --foreground: #171717;
-}
+  --foreground: #1d2228;
+  --gray-100: #f5f8fa;
+  --gray-200: #e0e4e9;
+  --gray-300: #cbcfd5;
+  --gray-800: #2d3239;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 * {
@@ -30,13 +22,22 @@ body {
   margin: 0;
 }
 
+html,
+body {
+  max-width: 100vw;
+  font-family: "Yahoo Sans", var(--font-sans);
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
 a {
   color: inherit;
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+/* Utility classes */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }

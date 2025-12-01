@@ -1,0 +1,67 @@
+.container {
+    background-color: #F3E5F5;
+    /* Light purple background, similar to image tones */
+    border-radius: 24px;
+    padding: 3rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.content {
+    flex: 1;
+    z-index: 1;
+    max-width: 50%;
+}
+
+.title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    color: #1A1A1A;
+    letter-spacing: -0.02em;
+}
+
+.description {
+    font-size: 1.25rem;
+    color: #4A4A4A;
+    margin-bottom: 0;
+    line-height: 1.5;
+}
+
+.imageContainer {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.image {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    /* Optional: Add a subtle drop shadow or float effect */
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column-reverse;
+        padding: 2rem;
+        text-align: center;
+    }
+
+    .content {
+        max-width: 100%;
+    }
+
+    .title {
+        font-size: 2.5rem;
+    }
+}

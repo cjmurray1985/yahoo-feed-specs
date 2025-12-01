@@ -1,0 +1,41 @@
+.container {
+    display: flex;
+    gap: 3rem;
+    position: relative;
+}
+
+.content {
+    flex: 1;
+    min-width: 0;
+    /* Prevent flex item from overflowing */
+}
+
+.aside {
+    flex-shrink: 0;
+}
+
+.header {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--foreground);
+    margin-bottom: 0.5rem;
+    line-height: 1.1;
+}
+
+.meta {
+    color: var(--gray-800);
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+@media (max-width: 1200px) {
+    .aside {
+        display: none;
+    }
+}

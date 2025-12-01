@@ -1,0 +1,109 @@
+.nav {
+    width: 250px;
+    flex-shrink: 0;
+    border-right: 1px solid var(--gray-200);
+    height: calc(100vh - 64px);
+    position: sticky;
+    top: calc(64px + var(--announcement-height, 0px));
+    padding: 20px 0 2rem;
+    overflow-y: auto;
+}
+
+.list {
+    list-style: none;
+}
+
+.mobileHeader {
+    display: none;
+}
+
+.link {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    color: var(--gray-800);
+    font-size: 0.95rem;
+    transition: background-color 0.2s, color 0.2s;
+    border-left: 3px solid transparent;
+}
+
+.link:hover {
+    background-color: var(--gray-100);
+    color: var(--yahoo-purple);
+}
+
+.active {
+    background-color: var(--gray-100);
+    color: var(--yahoo-purple);
+    border-left-color: var(--yahoo-purple);
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 280px;
+        background: var(--background);
+        z-index: 50;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+        border-right: 1px solid var(--gray-200);
+        /* Space for header */
+        display: block;
+        /* Override display: none */
+    }
+
+    .mobileHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid var(--gray-200);
+        margin-bottom: 1rem;
+    }
+
+    .mobileTitle {
+        font-weight: 600;
+        font-size: 1.1rem;
+        color: var(--gray-800);
+    }
+
+    .closeButton {
+        background: none;
+        border: none;
+        color: var(--gray-600);
+        cursor: pointer;
+        padding: 0.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .closeButton:hover {
+        color: var(--gray-900);
+    }
+
+    .navOpen {
+        transform: translateX(0);
+    }
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 40;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    }
+
+    .overlayOpen {
+        opacity: 1;
+        visibility: visible;
+    }
+}
