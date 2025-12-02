@@ -25,7 +25,7 @@ The following character encoding and namespace declaration is required:
 <rss xmlns:media="[http://search.yahoo.com/rss](http://search.yahoo.com/rss)" xmlns:content="[http://purl.org/rss/1.0/modules/content/](http://purl.org/rss/1.0/modules/content/)" version="2.0">
 ```
 
-* Feed fetch frequency is every 60 minutes, up to 100 new articles/videos per fetch.  
+* Feed fetch frequency is every 5 minutes, up to 100 new articles/videos per fetch.  
 * Please only include recent articles in your feeds (chronological order) that matches the up to date freshness of the content on your site.  
 * All other previously supported feed formats (NewsML, ATOM and custom XML) are deprecated and cannot be used for new onboarding.
 

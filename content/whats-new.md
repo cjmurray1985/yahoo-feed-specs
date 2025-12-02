@@ -8,6 +8,12 @@ Stay up to date with the latest changes to the Yahoo Feed Specifications.
 
 ## **December 2025**
 
+### **Feed Frequency Update**
+We have increased the feed fetch frequency from every 60 minutes to every **5 minutes**, ensuring your content appears on Yahoo faster than ever.
+
+### **Brand Updates**
+Updated the site favicon to match the official Yahoo Inc. branding.
+
 ### **New Welcome Kit Header**
 We've updated the Welcome Kit with a new, vibrant header illustration to welcome new partners.
 
