@@ -31,11 +31,13 @@ The following character encoding and namespace declaration is required:
 
 ## **Supported Content Type**
 
-Yahoo supports five different types of content. Please contact us if the technical guideline you are seeking is not available in pdf format on the Welcome kit homepage.
+Yahoo supports three different types of content:
 
-* [Technical guidelines for article ingestion](/docs/article-ingestion)
-* [Technical guidelines for slideshow ingestion](/docs/slideshow-ingestion)
-* [Technical guidelines for video ingestion](/docs/video-ingestion)
+1. [Technical guidelines for article ingestion](/docs/article-ingestion)
+2. [Technical guidelines for slideshow ingestion](/docs/slideshow-ingestion)
+3. [Technical guidelines for video ingestion](/docs/video-ingestion)
+
+Please contact us if the technical guideline you are seeking is not available.
 
 ## **Brand Logo Specifications**
 
