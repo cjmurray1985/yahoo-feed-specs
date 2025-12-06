@@ -1,7 +1,7 @@
 ---
 title: Technical Guidelines for Slideshow Ingestion
-date: 2025-12-01
 author: Yahoo Content Ops
+last_updated_override: ""
 ---
 
 This document covers specifications for delivering slideshow content.
@@ -10,7 +10,7 @@ This document covers specifications for delivering slideshow content.
 
 The following are the mandatory and optional tags. Any other field outside of this list will be ignored by the system. All these fields must be directly under \<item\>.
 
-<div class="spec-table">
+
 
 | Tag | Required | Description | Additional Comments |
 | :---- | :---- | :---- | :---- |
@@ -25,7 +25,7 @@ The following are the mandatory and optional tags. Any other field outside of th
 | `<media:content>` | Yes | Images should be mentioned under \<media:content\> tags. | "The title of the image should be included under \<media:title\>, where as the description should be mentioned under \<media:description\>" |
 | `<dc:creator>`, `<author>` | No | Author of the article | Articles with multiple authors please combine names within the same tag. Example: \<dc:creator\>Author1 and Author2\</dc:creator\> |
 
-</div>
+
 
 ## **Sample**
 

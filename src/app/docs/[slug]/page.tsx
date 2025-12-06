@@ -35,9 +35,9 @@ export default async function DocPage({ params }: PageProps) {
                 ) : (
                     <div className={styles.header}>
                         <h1 className={styles.title}>{doc.meta.title}</h1>
-                        {doc.meta.date && (
+                        {doc.meta.lastUpdated && (
                             <p className={styles.meta}>
-                                Last updated: {new Date(doc.meta.date).toLocaleDateString()}
+                                Last updated: {new Date(doc.meta.lastUpdated).toLocaleDateString()}
                             </p>
                         )}
                     </div>

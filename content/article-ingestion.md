@@ -1,7 +1,7 @@
 ---
 title: Technical Guidelines for Article Ingestion
-date: 2025-12-01
 author: Yahoo Content Ops
+last_updated_override: ""
 ---
 
 This document covers specifications for delivering article content.
@@ -10,7 +10,7 @@ This document covers specifications for delivering article content.
 
 Yahoo supports the following variations:
 
-* Plain Text Articles  
+* Plain Text Articles
 * Articles with image/images
 * Articles with video/videos
 * Articles with slideshow/slideshows
@@ -24,63 +24,55 @@ When using the XML (RSS) format, publishers can now embed product modules within
 
 ## **XML Specifications**
 
-<div class="spec-table">
-
 | Tag | Required | Description | Additional Comments |
-| :---- | :---- | :---- | :---- |
+| :--- | :--- | :--- | :--- |
 | `<title>` | Yes | Headline of the article | Minimum word count is greater than (1) word |
 | `<subheadline>` | No | A secondary headline providing additional context. | Minimum word count is greater than (1) word |
-| `<description>` | Yes | Short summary of the article | Minimum word count is greater than (3) words.<br>**Do not include HTML in the description.**|
+| `<description>` | Yes | Short summary of the article | Minimum word count is greater than (3) words.<br>**Do not include HTML in the description.** |
 | `<guid>` | Yes | Unique identifier for the article |  |
-| `<pubDate>` | Yes | Time at which the article is originally published in GMT | Example: `<pubDate>Tue, 12 Dec 2022 05:49:08 +0000</pubDate>` <br>**This date should not change**|
-| `<updated>` | Yes | Date and time when article was last updated |Example: `<updated>Fri, 22 Sep 2023 14:10:23 -0400</updated>` <br>For use when substantial updates are made to the article.<br>**Do not use for minor edits, such as a typo.**|
+| `<pubDate>` | Yes | Time at which the article is originally published in GMT | Example: `<pubDate>Tue, 12 Dec 2022 05:49:08 +0000</pubDate>`<br>**This date should not change** |
+| `<updated>` | Yes | Date and time when article was last updated | Example: `<updated>Fri, 22 Sep 2023 14:10:23 -0400</updated>`<br>For use when substantial updates are made to the article.<br>**Do not use for minor edits, such as a typo.** |
 | `<link>` | Yes | URL of the article. | This is the link of the article on your site. |
-| `<content:encoded>` | Yes | Full body of the article | This is the body of the article, minimum word count is greater than 150 words.<br>HTML markup or CDATA tags may be used, but HTML markup should not be used inside CDATA tags.<br>Normal punctuation can be used.<br>**You can not use HTML markup for your beginning and ending CDATA brackets**<br>`<![CDATA[` and `]]>` must be used.<br>Please reference the examples outlined in the [Encoding Specifications](/docs/welcome-kit#encoding-specifications) section of the Welcome Kit. |
-| `<core-commerce>` | No | Tag used to embed product modules within the article content. | This tag has specific required and optional attributes that define the product information and rendering.<br>Refer to the [Encoding Specifications](/docs/welcome-kit#encoding-specifications) section of the Welcome Kit for detailed attribute specifications and usage.<br>Inclusion of these links are **expressly prohibited unless you have an affiliate commerce agreement** in place with Yahoo. |
-| `<LinkedSlideshow>` | No | Related slideshow | Example: `<LinkedSlideshow>3000678196</LinkedSlideshow>`<br>This should reference the `<guid>` of the slideshow that has been sent through a separate MRSS feed (Refer to [Technical guidelines for slideshow ingestion](/docs/slideshow-ingestion)).<br>When placed outside `<content:encoded>`, it renders as a lead asset.<br>When placed inside `<content:encoded\>`, it renders inline within the article body. |
+| `<content:encoded>` | Yes | Full body of the article | This is the body of the article, minimum word count is greater than 150 words.<br>HTML markup or CDATA tags may be used, but HTML markup should not be used inside CDATA tags.<br>Normal punctuation can be used.<br>**You can not use HTML markup for your beginning and ending CDATA brackets**<br>`<![CDATA[` and `]]>` must be used.<br>Please reference the examples outlined in the Encoding Specifications section of the Welcome Kit. |
+| `<core-commerce>` | No | Tag used to embed product modules within the article content. | This tag has specific required and optional attributes that define the product information and rendering.<br>Refer to the Encoding Specifications section of the Welcome Kit for detailed attribute specifications and usage.<br>Inclusion of these links are **expressly prohibited unless you have an affiliate commerce agreement** in place with Yahoo. |
+| `<LinkedSlideshow>` | No | Related slideshow | Example: `<LinkedSlideshow>3000678196</LinkedSlideshow>`<br>This should reference the `<guid>` of the slideshow that has been sent through a separate MRSS feed (Refer to Technical guidelines for slideshow ingestion).<br>When placed outside `<content:encoded>`, it renders as a lead asset.<br>When placed inside `<content:encoded>`, it renders inline within the article body. |
 | `<img src>` | Yes | The lead image of the article displayed at the top must be the first image | Inlined within the article’s body mentioned under `<content:encoded>`.<br>All additional images must be inlined within the text of the body of the article.<br>Partners must use `<figure>` / `<figcaption>` element to mark up a photo and display photo credits.<br>The “alt” attribute within the `<img src>` tag is highly encouraged to to include the descriptive caption of the images to meet accessibility standards. |
-| `<media:thumbnail>` | Yes | Thumbnail image associated with the article. | The type can be `image/jpg`, `image/png`, `image/jpeg`, or `image/gif`.<br>Recommended image sizes are 1080 or 720 pixel height and 16:9 aspect ratio.<br>If no thumbnail image is provided, a thumbnail will be assigned from the first image within `<content:encoded>`.<br>**There can only be one thumbnail.**|
-| `<category>` | Yes | Identifies the categories that the article belongs to. | Example: `<category>News</category>`<br>This field is a signal for our editors to identify content and for site distribution.<br>**One category per item/article.**|
-| `<media:content>` | No | Images may be mentioned under `<media:content>` tags. The title of the image should be included under `<media:title>`, where as the description should be mentioned under `<media:description>` | This option **should only be used when there are no other images within the story body**, as embeds of any form within the story body are given precedence over the additional media.<br>The image sent as `<media:content>` will display as lead image without captioning on our sites when there are no embedded images.<br>To add a photo caption/credit to these images, please include a `<media:description>` tag nested in the `<media:content>` tag.<br>Please reference the [Images in Content](/docs/welcome-kit#images-in-content) section of the Welcome Kit. |
-| `<LinkedVideo>` | No | Related video. | Example:`<LinkedVideo>3000678195</LinkedVideo>`<br>This should reference the `<guid>` of the video that has been sent through a separate MRSS feed (Refer to [Technical guidelines for video ingestion](/docs/video-ingestion)).|
+| `<media:thumbnail>` | Yes | Thumbnail image associated with the article. | The type can be `image/jpg`, `image/png`, `image/jpeg`, or `image/gif`.<br>Recommended image sizes are 1080 or 720 pixel height and 16:9 aspect ratio.<br>If no thumbnail image is provided, a thumbnail will be assigned from the first image within `<content:encoded>`.<br>**There can only be one thumbnail.** |
+| `<category>` | Yes | Identifies the categories that the article belongs to. | Example: `<category>News</category>`<br>This field is a signal for our editors to identify content and for site distribution.<br>**One category per item/article.** |
+| `<media:content>` | No | Images may be mentioned under `<media:content>` tags. The title of the image should be included under `<media:title>`, where as the description should be mentioned under `<media:description>` | This option **should only be used when there are no other images within the story body**, as embeds of any form within the story body are given precedence over the additional media.<br>The image sent as `<media:content>` will display as lead image without captioning on our sites when there are no embedded images.<br>To add a photo caption/credit to these images, please include a `<media:description>` tag nested in the `<media:content>` tag.<br>Please reference the Images in Content section of the Welcome Kit. |
+| `<LinkedVideo>` | No | Related video. | Example:`<LinkedVideo>3000678195</LinkedVideo>`<br>This should reference the `<guid>` of the video that has been sent through a separate MRSS feed (Refer to Technical guidelines for video ingestion). |
 | `<Metadata>` | No | Finance Tickers. Stock symbols of the companies referenced in the article. | There can be multiple tags each representing a ticker symbol.<br>Please reference the sample below under `**For Finance Partners**` to view a properly formatted `<Metadata>` tag. |
 | `<dc:creator>`, `<author>` | No | Author of the article | For articles with multiple authors please combine both authors within the same tag.<br>Example: `<dc:creator>Author1 and Author2</dc:creator>` |
 | `<locations>` | No | Location data can be provided by either city and state tags or latitude and longitude tags. | Partners should use latitude/longitude for better user experience. |
-
-</div>
 
 ### **Core Commerce Tag Attributes**
 
 When using the `<core-commerce>` tag within the `<content:encoded>` section, the following attributes are used to define product modules.
 
-<div class="spec-table">
-
 | Attribute | Required | Type | Description |
-| :---- | :---- | :---- | :---- |
-| is-fed | Yes | number | Must be 1 |
-| data-type | Yes | string | Must be "product-list" |
-| product-url | Yes | string | URL linking to the product |
-| price | Yes | string | Can be numeric or non-numeric (e.g., "See", "$10/mo"). Currencies other than USD are currently not supported. |
-| merchant | Yes | string | Name of the merchant |
-| product-name | Yes | string | Name of the product |
-| editorial-text | Yes | string | The body copy of the module. Supports a subset of HTML tags and requires proper encoding of quote marks. |
-| img-url | Yes | string | URL of the product image. Aspect ratio should be **4:3**, with a minimum size of **400x300**. |
-| img-width | Yes | number | Width of the product image |
-| img-height | Yes | number | Height of the product image |
-| img-credit | Yes | string | Credit for the product image |
-| superlative | No | string | Optional tag or descriptor for the product |
-| pros | No | string | Multiple pros should be separated by a \` |
-| cons | No | string | Multiple cons should be separated by a \` |
-
-</div>
+| :--- | :--- | :--- | :--- |
+| `is-fed` | Yes | number | Must be 1 |
+| `data-type` | Yes | string | Must be "product-list" |
+| `product-url` | Yes | string | URL linking to the product |
+| `price` | Yes | string | Can be numeric or non-numeric (e.g., "See", "$10/mo"). Currencies other than USD are currently not supported. |
+| `merchant` | Yes | string | Name of the merchant |
+| `product-name` | Yes | string | Name of the product |
+| `editorial-text` | Yes | string | The body copy of the module. Supports a subset of HTML tags and requires proper encoding of quote marks. |
+| `img-url` | Yes | string | URL of the product image. Aspect ratio should be **4:3**, with a minimum size of **400x300**. |
+| `img-width` | Yes | number | Width of the product image |
+| `img-height` | Yes | number | Height of the product image |
+| `img-credit` | Yes | string | Credit for the product image |
+| `superlative` | No | string | Optional tag or descriptor for the product |
+| `pros` | No | string | Multiple pros should be separated by a `\|\|` |
+| `cons` | No | string | Multiple cons should be separated by a `\|\|` |
 
 #### **Implementation Notes**
 
-* **Rendering Logic:** If a required attribute is missing or null, the module will not render.  
-* **Styling:** A hairline will automatically appear above a product module that immediately follows another product module.  
-* **Monetization:** Link URLs within ingested product modules will **not** be automatically monetized (or re-monetized). Publishers should only use pre-monetized URLs in their product modules until further notice.
+*   **Rendering Logic:** If a required attribute is missing or null, the module will not render.
+*   **Styling:** A hairline will automatically appear above a product module that immediately follows another product module.
+*   **Monetization:** Link URLs within ingested product modules will not be automatically monetized (or re-monetized). Publishers should only use pre-monetized URLs in their product modules until further notice.
 
-**Sample**
+#### **Sample**
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -189,32 +181,39 @@ When using the `<core-commerce>` tag within the `<content:encoded>` section, the
     </item>
   </channel>
 </rss>
-
 ```
 
 ## **JSON Specifications**
 
 | Fields | Type | Description | Required |
-| :---- | :---- | :---- | :---- |
-| guid | String | Unique identifier for each article | Yes |
-| link | String | Canonical URL of the article | Yes |
-| title | String | Title of the article | Yes |
-| subheadline | String | A secondary headline providing additional context. | No |
-| summary | String | Description of the article | Yes |
-| content | String | Full text of the article | Yes |
-| author-\>name | String | Article author name(s) | No |
-| published | Date/Time (RFC822) | Date and time when article was originally published | Yes |
-| updated | Date/Time (RFC822) | Date and time when article was last updated | Yes |
-| categories | String (Array) | Category associated with the article | Yes |
-|  |  |  |  |
-| Locations | Array | List of location data can be provided by either city and state or latitude and longitude | No |
-| locations-\>city | String |  | Yes ( only if location→state is populated) |
-| locations-\>state | String |  | Yes ( only if location→city is populated) |
-| locations-\>latitude | Float |  | Yes ( only if location→longitude is populated) |
-| locations→longitude | Float |  | Yes ( only if location→latitude is populated) |
-| media | Array of Objects | Each image/slideshow/video asset should be included in the media array | No |
+| :--- | :--- | :--- | :--- |
+| `guid` | String | Unique identifier for each article | Yes |
+| `link` | String | Canonical URL of the article | Yes |
+| `title` | String | Title of the article | Yes |
+| `subheadline` | String | A secondary headline providing additional context. | No |
+| `summary` | String | Description of the article | Yes |
+| `content` | String | Full text of the article.<br><br>**Note:** To include **Inline** Linked Video or Slideshows, embed the `<LinkedVideo>GUID</LinkedVideo>` or `<LinkedSlideshow>GUID</LinkedSlideshow>` tags directly within this HTML string. | Yes |
+| `author->name` | String | Article author name(s) | No |
+| `published` | Date/Time (RFC822) | Date and time when article was originally published | Yes |
+| `updated` | Date/Time (RFC822) | Date and time when article was last updated | Yes |
+| `categories` | String (Array) | Category associated with the article | Yes |
+| `Locations` | Array | List of location data can be provided by either city and state or latitude and longitude | No |
+| `locations->city` | String |  | Yes ( only if location→state is populated) |
+| `locations->state` | String |  | Yes ( only if location→city is populated) |
+| `locations->latitude` | Float |  | Yes ( only if location→longitude is populated) |
+| `locations→longitude` | Float |  | Yes ( only if location→latitude is populated) |
+| `media` | Array of Objects | Each image/slideshow/video asset should be included in the media array.<br><br>**Note:** For **Lead** Linked assets, include the object with an id and type (see "Linked Media Objects" below). | No |
 
-**Sample**
+### **Linked Media Objects (Lead Assets)**
+
+When defining a "Linked" video or slideshow as a **Lead Asset** (displayed at the top of the article), use the following object structure within the media array. This references the content GUID sent via separate MRSS feeds.
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `id` | String | The GUID of the video or slideshow from the MRSS feed. |
+| `type` | String | Must be either "video" or "slideshow". |
+
+#### **Sample**
 
 ```json
 {
@@ -228,7 +227,7 @@ When using the `<core-commerce>` tag within the `<content:encoded>` section, the
       "link": "[http://www.engadget.com/2013/12/05/china-warns-banks-against-dealing-in-bitcoin-btc](http://www.engadget.com/2013/12/05/china-warns-banks-against-dealing-in-bitcoin-btc)",
       "title": "China warns banks against using Bitcoin",
       "subheadline": "We're pretty sure no Government is entirely thrilled at the idea of Bitcoin, but China's now made its feelings very explicit.",
-      "content": "<p class=\"image-container\" style=\"text-align: center;\"><a href=\"[http://www.engadget.com/2013/12/05/](http://www.engadget.com/2013/12/05/)\n china-warns-banks-against-dealing-in-bitcoin-btc/%SP_NCID%\"><img data-credit=\"AOL\" data-mep=\"46049\" \n src=\"[http://hss-prod.hss.aol.com/hss/storage/adam/70f462e25354d13a71c056728d8d3d4c/No-Bitcoin-Allowed.jpg](http://hss-prod.hss.aol.com/hss/storage/adam/70f462e25354d13a71c056728d8d3d4c/No-Bitcoin-Allowed.jpg)\" \n alt=\"\" /></a></p><p>We're pretty sure no Government is entirely thrilled at the idea of \n  <a href=\"[http://www.engadget.com/2013/05/08/engadget-primed-bitcoin/%SP_NCID](http://www.engadget.com/2013/05/08/engadget-primed-bitcoin/%SP_NCID)%\">Bitcoin</a>, but China's \n now made its feelings very explicit. The nation's various regulators have barred banks from dealing in the \n <a href=\"[http://www.engadget.com/2013/11/18/asrock-bitcoin-motherboards/%SP_NCID](http://www.engadget.com/2013/11/18/asrock-bitcoin-motherboards/%SP_NCID)%\">electronic currency</a>, \n saying that it doesn't have <a href=\"[http://www.engadget.com/2013/11/09/bitcoin-hijack-1-2-million/%SP_NCID](http://www.engadget.com/2013/11/09/bitcoin-hijack-1-2-million/%SP_NCID)%\">\n  legal status</a> and shouldn't be allowed to circulate in the market. While big institutions won't be able to \n  use the digital money, individuals are still entitled to buy and sell BTC off their own backs -- albeit with \n the heavily coded warning that they do so at their own risk.</p>",
+      "content": "<p class=\"image-container\" style=\"text-align: center;\"><a href=\"[http://www.engadget.com/2013/12/05/](http://www.engadget.com/2013/12/05/)\n china-warns-banks-against-dealing-in-bitcoin-btc/%SP_NCID%\"><img data-credit=\"AOL\" data-mep=\"46049\" \n src=\"[http://hss-prod.hss.aol.com/hss/storage/adam/70f462e25354d13a71c056728d8d3d4c/No-Bitcoin-Allowed.jpg](http://hss-prod.hss.aol.com/hss/storage/adam/70f462e25354d13a71c056728d8d3d4c/No-Bitcoin-Allowed.jpg)\" \n alt=\"\" /></a></p><p>We're pretty sure no Government is entirely thrilled at the idea of \n  <a href=\"[http://www.engadget.com/2013/05/08/engadget-primed-bitcoin/%SP_NCID](http://www.engadget.com/2013/05/08/engadget-primed-bitcoin/%SP_NCID)%\">Bitcoin</a>, but China's \n now made its feelings very explicit. The nation's various regulators have barred banks from dealing in the \n <a href=\"[http://www.engadget.com/2013/11/18/asrock-bitcoin-motherboards/%SP_NCID](http://www.engadget.com/2013/11/18/asrock-bitcoin-motherboards/%SP_NCID)%\">electronic currency</a>, \n saying that it doesn't have <a href=\"[http://www.engadget.com/2013/11/09/bitcoin-hijack-1-2-million/%SP_NCID](http://www.engadget.com/2013/11/09/bitcoin-hijack-1-2-million/%SP_NCID)%\">\n  legal status</a> and shouldn't be allowed to circulate in the market. While big institutions won't be able to \n  use the digital money, individuals are still entitled to buy and sell BTC off their own back. </p><LinkedVideo>3000678197</LinkedVideo><p>See the full slideshow of the timeline below:</p><LinkedSlideshow>3000678196</LinkedSlideshow>",
       "summary": "We're pretty sure no Government is entirely thrilled at the idea of Bitcoin, but China's now made \n  its feelings very explicit. The nation's various regulators have barred banks from dealing in the electronic \n currency, saying that it doesn't have ...",
       "author": {
         "name": "Daniel Cooper"
@@ -255,6 +254,10 @@ When using the `<core-commerce>` tag within the `<content:encoded>` section, the
           "type": "image",
           "width": 200,
           "height": 200
+        },
+        {  
+          "id": "3000678195",  
+          "type": "slideshow"  
         }
       ],
       "locations": [
@@ -274,7 +277,6 @@ When using the `<core-commerce>` tag within the `<content:encoded>` section, the
     }
   ]
 }
-
 ```
 
 ### **Pagination**
@@ -282,6 +284,6 @@ When using the `<core-commerce>` tag within the `<content:encoded>` section, the
 Partners can also provide pagination for JSON format feeds. Pagination allows us to "go back in time" to ingest old content when necessary.
 
 | Parameter | Description | Required |
-| :---- | :---- | :---- |
-| start | Unix timestamp in seconds | Y |
-| n | Limits the number of items returned. Defaults to 50 | N |
+| :--- | :--- | :--- |
+| `start` | Unix timestamp in seconds | Y |
+| `n` | Limits the number of items returned. Defaults to 50 | N |

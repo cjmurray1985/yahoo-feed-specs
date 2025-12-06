@@ -1,7 +1,8 @@
 ---
 title: Style Guide
-date: 2025-11-30
 author: System
+last_updated_override: ""
+
 ---
 
 # Style Guide

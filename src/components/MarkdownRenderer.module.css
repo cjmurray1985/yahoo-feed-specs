@@ -187,3 +187,21 @@
 :global(.spec-table) .table th:nth-child(4) {
     min-width: 300px;
 }
+
+:global(.cta-button) {
+    vertical-align: middle;
+    border-radius: 4px;
+    justify-content: center;
+    align-items: center;
+    margin-left: 4px;
+    padding: 4px;
+    transition: color 0.2s, background-color 0.2s;
+    display: inline-flex;
+    color: var(--gray-800) !important;
+    text-decoration: none !important;
+}
+
+:global(.cta-button):hover {
+    background-color: var(--gray-200);
+    color: var(--yahoo-purple) !important;
+}

@@ -1,7 +1,7 @@
 ---
 title: Technical Guidelines for Video Ingestion
-date: 2025-12-01
 author: Yahoo Content Ops
+last_updated_override: ""
 ---
 
 This document covers specifications for delivering video content.
@@ -10,7 +10,7 @@ This document covers specifications for delivering video content.
 
 The following are the mandatory and optional tags. Any other field outside of this list will be ignored by the system. All these tags must be directly under \<item\>.
 
-<div class="spec-table">
+
 
 | Tag | Required | Description | Additional Comments |
 | :---- | :---- | :---- | :---- |
@@ -32,7 +32,7 @@ The following are the mandatory and optional tags. Any other field outside of th
 | `<media:subTitle type="application/ttml+xml" lang="en-US" href="http://media.zenfs.com/community-sample.ttml" />` | No | type, lang and href are mandatory. | For more details refer section on Closed Caption |
 | `<show>` | No | TV Show details | Season,Episode,Season Name,Sample: \<show season="1" episode="2"\>\<\!\[CDATA\[Saturday Night Live\]\]\>\</show\> |
 
-</div>
+
 
 ## **Sample Feed**
 

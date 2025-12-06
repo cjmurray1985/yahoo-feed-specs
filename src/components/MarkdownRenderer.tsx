@@ -32,7 +32,20 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
                     ul: ({ node, ...props }) => <ul className={styles.ul} {...props} />,
                     ol: ({ node, ...props }) => <ol className={styles.ol} {...props} />,
                     li: ({ node, ...props }) => <li className={styles.li} {...props} />,
-                    a: ({ node, ...props }) => <a className={styles.a} {...props} />,
+                    a: ({ node, ...props }) => {
+                        if (props.children && props.children.toString() === 'Learn more') {
+                            return (
+                                <a className="cta-button" aria-label="Learn more" {...props}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            );
+                        }
+                        return <a className={styles.a} {...props} />;
+                    },
                     code: ({ node, className, children, ...props }) => {
                         const match = /language-(\w+)/.exec(className || '');
                         const isInline = !match && !String(children).includes('\n');
@@ -66,7 +79,7 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
                         );
                     },
                     pre: ({ children }) => <>{children}</>,
-                    table: ({ node, ...props }) => <div className={styles.tableWrapper}><table className={styles.table} {...props} /></div>,
+                    table: ({ node, ...props }) => <div className={`${styles.tableWrapper} spec-table`}><table className={styles.table} {...props} /></div>,
                 }}
             >
                 {content}

@@ -1,21 +1,21 @@
 ---
 title: Content Ingestion Welcome Kit
-date: 2025-12-01
 author: Yahoo Content Ops
+last_updated_override: ""
 ---
 
-Follow our technical requirements to build a feed that renders all of its embedded features. Yahoo reserves the right to update these guidelines at its sole discretion at any time.
+Follow our technical requirements to build a feed that renders all of its embedded features. Yahoo reserves the right to update these guidelines at its sole discretion at any time. For questions, please reach out to your partner manager.
 
 ## **Supported Acquisition Protocols**
 
-* All feeds (both metadata and assets) must be available through HTTPS.  
-* All media assets will be downloaded (and in the case for videos, transcoded) to Yahoo servers.  
+* All feeds (both metadata and assets) must be available through HTTPS.
+* All media assets will be downloaded (and in the case for videos, transcoded) to Yahoo servers.
 * All other previously supported protocols (FTP, FTPS, SFTP) are deprecated and should not be used for new onboarding.
 
 ## **Supported Feed Formats**
 
-* All feeds must be served through RSS, MRSS or API.  
-* Article feeds must conform to XML 1.0 specification or JSON format.  
+* All feeds must be served through RSS, MRSS or API.
+* Article feeds must conform to XML 1.0 specification or JSON format.
 * Please validate your RSS feed and fix any issues using a feed validation tool before submitting to Yahoo.
 
 The following character encoding and namespace declaration is required:
@@ -25,8 +25,8 @@ The following character encoding and namespace declaration is required:
 <rss xmlns:media="[http://search.yahoo.com/rss](http://search.yahoo.com/rss)" xmlns:content="[http://purl.org/rss/1.0/modules/content/](http://purl.org/rss/1.0/modules/content/)" version="2.0">
 ```
 
-* Feed fetch frequency is every 5 minutes, up to 100 new articles/videos per fetch.  
-* Please only include recent articles in your feeds (chronological order) that matches the up to date freshness of the content on your site.  
+* Feed fetch frequency is every 5 minutes, up to 100 new articles/videos per fetch.
+* Please only include recent articles in your feeds (chronological order) that matches the up to date freshness of the content on your site.
 * All other previously supported feed formats (NewsML, ATOM and custom XML) are deprecated and cannot be used for new onboarding.
 
 ## **Supported Content Type**
@@ -39,33 +39,10 @@ Yahoo supports three different types of content:
 
 Please contact us if the technical guideline you are seeking is not available.
 
-## **Brand Logo Specifications**
-
-Partners are required to provide 4 company logos assets in JPEG or PNG format. The company logo will be displayed in tandem with all content on front pages.
-
-In order to properly render the brand logo across all devices, please provide the following logo assets:
-
-* 1 Horizontal logo to be used for light themed pages \- minimum 300px height  
-* 1 Horizontal logo to be used for dark themed pages \- minimum 300px height  
-* 1 White Horizontal logo used for full color background edge cases \- minimum 300px height  
-* 1 Circle logo minimum 400x400px
-
-Our design team will review and modify size if necessary for fit and feel on Yahoo.
-
-### **Logos defined**
-
-* The Light horizontal logo is used primarily in regular light themed pages.  
-* This is the most common logo we will use in production. Preferably just one line.  
-* If your company logo has 2 lines it is ok, but it will be small for users to see.  
-* White logo is “all white” that we will use for some rare cases with full color background.  
-* Light theme, dark theme and all white logos need to all be transparent background.  
-* Circle logo can have a color background if you prefer, or we will substitute a white or black background depending on your logo color.  
-* The usage will be similar to a twitter user profile.
-
 ## **Content Security**
 
-* For security reasons, Yahoo prohibits content from publishers that contain `<script>`, inline styles (`<style>` tags or `style=""`) attributes and `<object>` markups.  
-* All embed (`<embed>` or `<iframe>`) tags must be served via HTTPS. Yahoo pages are served through HTTPS.  
+* For security reasons, Yahoo prohibits content from publishers that contain `<script>`, inline styles (`<style>` tags or `style=""`) attributes and `<object>` markups.
+* All embed (`<embed>` or `<iframe>`) tags must be served via HTTPS. Yahoo pages are served through HTTPS.
 * Failure to provide HTTPS will result in removal of content from front end pages and therefore unavailable to end users
 
 ## **Supported Feed Authentication Types**
@@ -74,8 +51,8 @@ Partners/Publishers, who are concerned about content security, can allow domains
 
 Yahoo also supports secure feeds with the following types of authentication:
 
-* OAuth2  
-* Basic (username/password)  
+* OAuth2
+* Basic (username/password)
 * API Header (X-Token)
 
 ## **Date & Time Specifications**
@@ -88,19 +65,19 @@ Below is the required format for publishing date/time. Date/time must include ti
 
 **Note:**
 
-* Each article must include a timestamp of when the article was originally published.  
-* The timestamp cannot be dated in the future.  
-* Content embargo and expiry will be as dictated by license.  
+* Each article must include a timestamp of when the article was originally published.
+* The timestamp cannot be dated in the future.
+* Content embargo and expiry will be as dictated by license.
 * Content can include embargo and expiry overrides through `<dcterms:valid>` tag.
 
 ## **Auto Updates in Content**
 
-* By default our ingestion system will auto detect changes to the `<title>` (headline), `<description>` (summary) or `<content:encoded>` (body of the story).  
-* To make updates to a previously ingested story already in our system please resend the changes through the RSS feed.  
-* The updated version MUST contain the same `<guid>` as the original piece.  
-* If the updated version has a new `<guid>`, we will process it as a new story and generate a new url, which means the previous version will not be updated.  
-* Failure to use the same `<guid>` will create duplicative content. Do NOT make changes to the `<pubDate>`.  
-* Doing so can negatively impact user content streams.  
+* By default our ingestion system will auto detect changes to the `<title>` (headline), `<description>` (summary) or `<content:encoded>` (body of the story).
+* To make updates to a previously ingested story already in our system please resend the changes through the RSS feed.
+* The updated version MUST contain the same `<guid>` as the original piece.
+* If the updated version has a new `<guid>`, we will process it as a new story and generate a new url, which means the previous version will not be updated.
+* Failure to use the same `<guid>` will create duplicative content. Do NOT make changes to the `<pubDate>`.
+* Doing so can negatively impact user content streams.
 * Please include the `<updated>` tag when changing image assets in `<media:thumbnail>` and `<media:content>` fields.
 
 ### **Example workflow:**
@@ -257,7 +234,7 @@ There are two ways, through which images can be associated with an article.
 
 ### **Video Only**
 
-Provide a MRSS video feed that meets the requirements outlined in the Technical guidelines for video ingestion documentation. The videos will be downloaded, transcoded and served from Yahoo's servers. The video will render in a Yahoo player on a dedicated video page with brief text description. Example: Yahoo Finance Video
+Provide a MRSS video feed that meets the requirements outlined in the Technical guidelines for video ingestion documentation. The videos will be downloaded, transcoded and served from Yahoo's servers. The video will render in a Yahoo player on a dedicated video page with brief text description.
 
 ### **Video In Article Content**
 

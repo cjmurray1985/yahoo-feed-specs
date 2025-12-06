@@ -1,29 +1,37 @@
 ---
 title: What's New
-date: 2025-12-01
 author: Yahoo Content Ops
+last_updated_override: ""
 ---
 
 Stay up to date with the latest changes to the Yahoo Feed Specifications.
 
-## **December 2025**
+## **2025**
+
+### **Brand Page Support**
+We now support Brand Pages for publishers. Check out the new specifications for cover images, logos, and social embeds to establish your brand presence.
+[Learn more](/docs/brand-specifications)
+
+### **Inline Video Support**
+Extended `<LinkedVideo>` support for articles, allowing partners to embed videos directly within article content for a richer storytelling experience.
+[Learn more](/docs/welcome-kit#video-in-article-content)
+
+### **Enhanced Slideshows**
+Added `<LinkedSlideshow>` support for both inline and lead slideshow configurations within articles, allowing you to present image galleries for the first time.
+[Learn more](/docs/welcome-kit#slideshows-in-content)
+
+### **Native Commerce Modules**
+Launched the `<core-commerce>` tag to support native commerce modules, enabling native shopping and affiliate content modules optimized by Yahoo's commerce experts.
+[Learn more](/docs/article-ingestion#core-commerce-tag-attributes)
 
 ### **Feed Frequency Update**
-We have increased the feed fetch frequency from every 60 minutes to every **5 minutes**, ensuring your content appears on Yahoo faster than ever.
+We have increased the feed fetch frequency to every **5 minutes**, ensuring your breaking news and updates appear on Yahoo faster than ever.
+[Learn more](/docs/welcome-kit#supported-feed-formats)
 
-### **Brand Updates**
-Updated the site favicon to match the official Yahoo Inc. branding.
+### **Extended Social Embeds**
+Expanded embed support to include **Bluesky**, **Facebook** (div-based), **Datawrapper**, and **Flourish**, allowing for a wider range of interactive and social content.
+[Learn more](/docs/welcome-kit#social-embeds-in-content)
 
-### **New Welcome Kit Header**
-We've updated the Welcome Kit with a new, vibrant header illustration to welcome new partners.
-
-### **Mobile Menu Improvements**
-The mobile navigation now features a clear "Close" button and improved spacing for better usability on smaller screens.
-
-### **Sticky Headers**
-Table headers now stick to the top of the view when scrolling through long specification tables, making it easier to reference column definitions.
-
-## **November 2025**
-
-### **Initial Release**
-The Yahoo Feed Specifications site is live! This comprehensive guide covers everything you need to know about ingesting articles, videos, and slideshows.
+### **Subheadline Support**
+Added supported for the optional `<subheadline>` tag, providing an additional layer of context to your article titles.
+[Learn more](/docs/article-ingestion#xml-specifications)

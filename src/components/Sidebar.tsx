@@ -11,6 +11,7 @@ const navItems = [
     { label: 'Article Ingestion', href: '/docs/article-ingestion' },
     { label: 'Video Ingestion', href: '/docs/video-ingestion' },
     { label: 'Slideshow Ingestion', href: '/docs/slideshow-ingestion' },
+    { label: 'Brand Specifications', href: '/docs/brand-specifications' },
 ];
 
 interface SidebarProps {
