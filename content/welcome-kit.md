@@ -320,7 +320,7 @@ Embeds supported in `<content:encoded>` are:
 * [Facebook](/docs/welcome-kit#facebook-embed)
 * [Threads](/docs/welcome-kit#threads-embed)
 * [TikTok](/docs/welcome-kit#tiktok-embed)
-* [Reddit](/docs/welcome-kit#reddit-embed)
+
 * [BlueSky](/docs/welcome-kit#bluesky-embed)
 * [Datawrapper](/docs/welcome-kit#datawrapper-embed)
 * [Flourish](/docs/welcome-kit#flourish-embed)
@@ -418,16 +418,7 @@ href="[https://www.tiktok.com/music/original-sound-7268336801079741230?refer=emb
 </section> </blockquote>
 ```
 
-### **Reddit Embed**
 
-```html
-<blockquote class="reddit-embed-bq" style="height:500px" data-embed-created="2025-11-17T22:51:04Z">
-<a href="https://www.reddit.com/r/dataisbeautiful/comments/uul3kh/oc_travel_durations_from_paris_by_train_minute_by/">[OC] Travel durations from Paris by train, minute by minute</a><br> by
-<a href="https://www.reddit.com/user/gmilloue/">u/gmilloue</a> in
-<a href="https://www.reddit.com/r/dataisbeautiful/">dataisbeautiful</a>
-</blockquote>
-<script async src="https://embed.reddit.com/widgets.js" charset="UTF-8"></script>
-```
 
 ### **Bluesky Embed**
 

@@ -24,8 +24,23 @@ export default async function DocPage({ params }: PageProps) {
         notFound();
     }
 
+    const jsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'TechArticle',
+        headline: doc.meta.title,
+        dateModified: doc.meta.lastUpdated,
+        about: {
+            '@type': 'DataFeed',
+            name: 'Yahoo Feed Specifications',
+        },
+    };
+
     return (
         <div className={styles.container}>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             <div className={styles.content}>
                 {slug === 'welcome-kit' ? (
                     <WelcomeHeader
