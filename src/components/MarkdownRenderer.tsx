@@ -5,6 +5,7 @@ import rehypeRaw from 'rehype-raw';
 import remarkGfm from 'remark-gfm';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import CopyButton from './CopyButton';
 import styles from './MarkdownRenderer.module.css';
 
 interface MarkdownRendererProps {
@@ -61,8 +62,9 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
                         return (
                             <div className={`rounded-lg shadow-sm my-4 overflow-hidden border border-gray-700 ${styles.codeBlockWrapper}`}>
                                 {match && (
-                                    <div className="bg-[#1e1e1e] px-4 py-2 text-xs font-bold uppercase text-gray-400 select-none border-b border-gray-700">
-                                        {match[1]}
+                                    <div className="bg-[#1e1e1e] px-4 py-2 text-xs font-bold uppercase text-gray-400 select-none border-b border-gray-700 flex justify-between items-center">
+                                        <span>{match[1]}</span>
+                                        <CopyButton text={String(children).replace(/\n$/, '')} />
                                     </div>
                                 )}
                                 <SyntaxHighlighter
