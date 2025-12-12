@@ -234,20 +234,25 @@ There are two ways, through which images can be associated with an article.
 
 ### **Video Only**
 
-Provide a MRSS video feed that meets the requirements outlined in the Technical guidelines for video ingestion documentation. The videos will be downloaded, transcoded and served from Yahoo's servers. The video will render in a Yahoo player on a dedicated video page with brief text description.
+Provide a MRSS video feed that meets the requirements outlined in the [Technical guidelines for video ingestion documentation](/docs/video-ingestion). The videos will be downloaded, transcoded and served from Yahoo's servers. The video will render in a Yahoo player on a dedicated video page with brief text description.
 
 ### **Video In Article Content**
 
 Publishers can embed video in article content using one of two options.
 
-#### **Option 1**
+#### **Option 1: Linked Video**
 
 Is a two part process.
 
-* **Step 1:** Provide a video feed as outlined above. Videos will be downloaded, transcoded and served from our (CMS) content management system.  
-* **Step 2:** Provide an article feed that the meets the requirements outlined in the Technical guidelines for article ingestion documentation.
+* **Step 1:** Provide a video feed as outlined above. Videos will be downloaded, transcoded and served from Yahoo servers.
+* **Step 2:** Provide an article feed that the meets the requirements outlined in the [Technical guidelines for article ingestion documentation](/docs/article-ingestion).
 
-You now have the option to use the `<LinkedVideo>` tag to identify the existing video asset in our CMS to feature at the top of the article.
+You now have the option to use the `<LinkedVideo>` tag to identify the existing video asset in our system.
+
+Publishers can position videos as either:
+
+* **Lead assets:** Place the `<LinkedVideo>` tag outside `<content:encoded>` to display as the primary media at the top of the article.
+* **Inline content:** Place the `<LinkedVideo>` tag inside `<content:encoded>` to embed within the article body.
 
 **Lead asset Video:**
 
@@ -261,7 +266,19 @@ You now have the option to use the `<LinkedVideo>` tag to identify the existing 
 </item>
 ```
 
-#### **Option 2**
+**Inline Video:**
+
+```xml
+<content:encoded>
+  <![CDATA[
+    <p>The story continues below.</p>
+    <LinkedVideo>3000678194</LinkedVideo>
+    <p>More details about the event...</p>
+  ]]>
+</content:encoded>
+```
+
+#### **Option 2: Iframe Embed**
 
 The second video in article option is to use `<iframe>` tags. Youtube is currently the only approved video sharing site.
 
@@ -282,7 +299,7 @@ Publishers can position slideshows as either:
 * **Lead assets :** Place the `<LinkedSlideshow>` tag outside `<content:encoded>` to display as the primary media at the top of the article  
 * **Inline content :** Place the `<LinkedSlideshow>` tag inside `<content:encoded>` to embed within the article body
 
-To get more information on how to provide slideshow feeds to Yahoo, please refer to the document Technical guidelines for slideshow ingestion .
+To get more information on how to provide slideshow feeds to Yahoo, please refer to the document [Technical guidelines for slideshow ingestion](/docs/slideshow-ingestion).
 
 **Lead Asset Slideshow:**
 
